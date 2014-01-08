@@ -1,0 +1,12 @@
+{
+  "author": "William McDonald",
+  "name": "website",
+  "description": "My website",
+  "homepage": "https://github.com/WalrusCow/website",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "express": "3.4.7",
+    "jade": "*"
+  }
+}
