@@ -1,7 +1,11 @@
 doctype html
-html
+html(style='background-image: url(/images/bg/' + background + ');')
   head
     title= title
     link(rel='stylesheet', href='/style/main.css')
   body
-    block content
+    div.container
+      include header
+      div.content
+        block content
+    include footer
