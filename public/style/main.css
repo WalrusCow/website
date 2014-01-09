@@ -1,5 +1,5 @@
 html {
-  background-image: url(/images/bg/bg1.jpg);
+  background: url(/images/bg/bg1.jpg) no-repeat center center fixed;
   background-size: cover;
 }
 
@@ -25,7 +25,7 @@ p, h1, h2, h3 {
 div.content {
   background-color: rgba(255, 255, 255, 0.6);
   display: block;
-  margin: 0.4em auto 0.4em;
+  margin: 0.25em auto 0.25em;
   overflow: hidden;
 }
 
