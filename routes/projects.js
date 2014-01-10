@@ -2,8 +2,12 @@
  * Route for projects page.
  */
 
+var bgSelect = require('./bgSelect');
+
 function main(req, res) {
-  res.render('projects', { title : 'Projects' });
+  var bg = bgSelect();
+
+  res.render('projects', { title : 'Projects', background: bg });
 }
 
 module.exports = main;
