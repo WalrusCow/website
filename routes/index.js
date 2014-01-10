@@ -5,6 +5,8 @@
 var path = require('path');
 var fs = require('fs');
 
+exports.projects = require('./projects');
+
 function randInt(min, max) {
   /* Return random integer in interval [min, max]. */
   return Math.floor(Math.random() * (max - min + 1) + min);
