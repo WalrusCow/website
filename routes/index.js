@@ -16,7 +16,6 @@ exports.index = function(req, res) {
   // Generate a random background
   var rootDir = path.dirname(__dirname);
   var bgFiles = fs.readdirSync(path.join(rootDir, 'public', 'images', 'bg'));
-  console.log(bgFiles);
   var bgIndex = randInt(0, bgFiles.length - 1);
   var bg = bgFiles[bgIndex];
 

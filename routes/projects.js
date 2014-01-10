@@ -6,4 +6,4 @@ function main(req, res) {
   res.render('projects', { title : 'Projects' });
 }
 
-module.exports = projects;
+module.exports = main;

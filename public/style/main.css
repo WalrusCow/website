@@ -3,31 +3,13 @@ html {
   background-size: cover;
 }
 
-#title {
-  float: left;
-  display: inline;
-}
-
-div.header a {
-  text-decoration: none;
-}
-
 body {
   font: 1em "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-ul.header {
-  float: right;
-  display: block;
-  margin-left: 0;
-  padding-left: 0;
-  white-space: nowrap;
-}
-
-ul.header li {
-  display: inline;
-  list-style-type: none;
-  padding-right: 1em;
+p {
+  font-size: 1.1em;
+  line-height: 1.25em;
 }
 
 a.link {
@@ -53,9 +35,6 @@ div.content {
   padding: 0 1em;
 }
 
-div.header {
-}
-
 div.footer {
   text-align: center;
   font-size: 0.75em;
@@ -64,4 +43,23 @@ div.footer {
 div.footer a {
   color: inherit;
   font-size: inherit;
+}
+
+div.header a {
+  text-decoration: none;
+}
+
+#mainTitle {
+  float: left;
+}
+
+.title {
+  font-weight: normal;
+  font-size: 2em;
+  display: inline;
+}
+
+.navLink {
+  float: right;
+  padding-left: 1em;
 }
