@@ -86,9 +86,6 @@ define(['sg', 'util'], function (sg, util) {
     if(coords.x < 0 || coords.y < 0 ||
        coords.x >= this.gridSize.x || coords.y >= this.gridSize.y) return;
 
-    console.log(this.gridSize);
-    console.log(coords);
-
     var cell = this.gameGrid[coords.x][coords.y];
 
     // Flip the alive state
