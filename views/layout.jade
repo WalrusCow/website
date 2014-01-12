@@ -3,9 +3,11 @@ html(style='background-image: url(/images/bg/' + background + ');')
   head
     title= title
     link(rel='stylesheet', href='/style/main.css')
+    block css
   body
     div.container
       include header
       div.content
         block content
     include footer
+    block scripts

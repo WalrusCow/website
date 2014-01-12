@@ -18,21 +18,21 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
 // Site icon
-app.use(express.favicon(path.join(__dirname, '/public/images/icon.gif')));
+app.use(express.favicon(path.join(__dirname, 'public/images/icon.gif')));
 
 // Dev only
 app.use(express.logger('dev'));
-app.use(express.json());
 
+app.use(express.json());
 app.use(express.urlencoded());
 app.use(express.methodOverride());
 
 app.use(app.router);
-
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.get('/', routes.index);
-app.get('/projects', routes.projects);
+for (var path in routes.get) {
+  app.get(path, routes.get[path]);
+}
 
 http.createServer(app).listen(app.get('port'), function() {
   console.log('Express server listening on port ' + app.get('port'));

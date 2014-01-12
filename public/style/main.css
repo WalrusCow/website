@@ -12,10 +12,10 @@ p {
   line-height: 1.25em;
 }
 
-a.link {
+a:visited, a:link {
   color: #424242;
 }
-a.link:hover {
+a:visited:hover, a:link:hover {
   color: #636363;
   text-decoration: none;
 }
@@ -62,4 +62,8 @@ div.header a {
 .navLink {
   float: right;
   padding-left: 1em;
+}
+
+canvas#tetvas {
+  background-color: #C3C3C3;
 }
