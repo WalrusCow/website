@@ -64,6 +64,9 @@ div.header a {
   padding-left: 1em;
 }
 
-canvas#tetvas {
+canvas {
   background-color: #C3C3C3;
+}
+#Life-canvas {
+  border: 2px solid black;
 }

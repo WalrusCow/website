@@ -1,0 +1,17 @@
+extends layout
+
+block content
+  p.
+    Click on the canvas to populate a cell.
+    Drag the slider to change the speed of the game.
+  canvas#Life-canvas(height='300', width='200').
+    Please use a modern browser to play.
+  br
+  button#Life-start Go
+  button#Life-stop Stop
+  button#Life-clear Clear
+  br
+  input#Life-speed(type='range', value='4', min='1', max='10')
+
+block scripts
+  script(data-main='/scripts/lifeMain.js', src='/scripts/require.js')
