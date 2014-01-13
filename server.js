@@ -20,9 +20,6 @@ app.set('view engine', 'jade');
 // Site icon
 app.use(express.favicon(path.join(__dirname, 'public/images/icon.gif')));
 
-// Dev only
-app.use(express.logger('dev'));
-
 app.use(express.json());
 app.use(express.urlencoded());
 app.use(express.methodOverride());
@@ -33,6 +30,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 for (var path in routes.get) {
   app.get(path, routes.get[path]);
 }
+app.get('/resume', function(req, res) {
+  res.redirect('/resume.pdf');
+});
 
 http.createServer(app).listen(app.get('port'), function() {
   console.log('Express server listening on port ' + app.get('port'));
