@@ -40,7 +40,7 @@ div.footer {
   font-size: 0.75em;
   color: rgba(222, 222, 222, 0.4);
 }
-div.footer a {
+div.footer a:hover, div.footer a {
   color: inherit;
   font-size: inherit;
 }
@@ -57,6 +57,7 @@ div.header a {
   font-weight: normal;
   font-size: 2em;
   display: inline;
+  line-height: 0.5em;
 }
 
 .navLink {
