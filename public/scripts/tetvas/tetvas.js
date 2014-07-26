@@ -5,10 +5,7 @@ define(['globals', 'util', 'pieces/gamePiece', 'pieces/basePiece'],
   var GAME_TEXT_POINT = { x : 165, y : 130 };
 
   function Tetvas() {
-
-    // Initial speed
     this.speed = globals.START_SPEED;
-
     this.score = 0;
 
     // Boolean to indicate if the game is ongoing
@@ -45,8 +42,6 @@ define(['globals', 'util', 'pieces/gamePiece', 'pieces/basePiece'],
     startButton.addEventListener('click', function(e) {
       self.start();
     });
-
-
   };
 
   Tetvas.prototype.drawLabels = function() {
@@ -56,7 +51,6 @@ define(['globals', 'util', 'pieces/gamePiece', 'pieces/basePiece'],
     for (var label in labels) {
       util.writeText(label, labels[label], globals.LABEL_TEXT);
     }
-
   };
 
   Tetvas.prototype.getNextPiece = function() {
@@ -77,7 +71,6 @@ define(['globals', 'util', 'pieces/gamePiece', 'pieces/basePiece'],
     this.showNextPieces();
 
     return nextPiece;
-
   };
 
   Tetvas.prototype.showNextPieces = function() {
@@ -159,7 +152,15 @@ define(['globals', 'util', 'pieces/gamePiece', 'pieces/basePiece'],
 
   Tetvas.prototype.addScore = function(rowsCleared) {
     /* Add to score based on number of rows cleared. */
+    var oldLevel = Math.ceil(this.score / globals.LEVEL_SCORE);
     this.score += globals.SCORES[rowsCleared];
+    var newLevel = Math.ceil(this.score / globals.LEVEL_SCORE);
+    if (oldLevel < newLevel) {
+      this.speed *= globals.LEVEL_SPEED_RATIO;
+      // Restart game ticker with new speed
+      this.stopTicker();
+      this.startTicker();
+    }
   };
 
   Tetvas.prototype.undrawRow = function(row) {
@@ -287,7 +288,6 @@ define(['globals', 'util', 'pieces/gamePiece', 'pieces/basePiece'],
         e.preventDefault();
         break;
     }
-
   };
 
   Tetvas.prototype.registerListeners = function() {
@@ -299,7 +299,6 @@ define(['globals', 'util', 'pieces/gamePiece', 'pieces/basePiece'],
       self.keyStroke(e);
     };
     document.addEventListener('keydown', this._keydown, true);
-
   };
 
   Tetvas.prototype.holdPiece = function() {
@@ -352,21 +351,21 @@ define(['globals', 'util', 'pieces/gamePiece', 'pieces/basePiece'],
     this.togglePause();
   };
 
+  Tetvas.prototype.startTicker = function() {
+    var self = this;
+    this.gameTicker = window.setInterval(function() {
+      self.tick();
+    }, this.speed);
+  };
+
+  Tetvas.prototype.stopTicker = function() {
+    window.clearInterval(this.gameTicker);
+    this.gameTicker = null;
+  };
+
   Tetvas.prototype.togglePause = function() {
     /* Toggle game pause */
-    var self = this;
-
-    if (this.gameTicker) {
-      // It is playing - pause it
-      window.clearInterval(this.gameTicker);
-      this.gameTicker = null;
-
-    } else {
-      // Start the ticker
-      this.gameTicker = window.setInterval(function() {
-        self.tick();
-      }, this.speed);
-    }
+    this.gameTicker ? this.stopTicker() : this.startTicker();
   };
 
   Tetvas.prototype._initCanvas = function() {
