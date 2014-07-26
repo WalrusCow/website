@@ -4,15 +4,10 @@ block content
   p.
     Use ↑ and Z to rotate, shift to hold and ctrl to drop.
     Press P to pause the game.
-  p
-    | Known areas for improvement:
-    ul
-      li No indication of pausing (although pausing works)
-      li No speed increase as score increases
-  canvas#tetvas(height='354', width='330').
+  canvas.game#tetvas(height='354', width='330').
     Please use a modern browser to play.
   br
-  button#tetvas-start Play
+  button.btn.btn-default#tetvas-start Play
 
 block scripts
   script(data-main='/scripts/tetvasMain.js', src='/scripts/require.js')

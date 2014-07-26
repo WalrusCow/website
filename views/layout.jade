@@ -1,13 +1,22 @@
 doctype html
 html(style='background-image: url(/images/bg/' + background + ');')
   head
+    meta(http-equiv='Content-Type' content='text/html; charset=UTF-8')
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible' content='IE=edge')
+    meta(name='viewport' content='width=device-width, initial-scale=1')
     title= title
-    link(rel='stylesheet', href='/style/main.css')
+    link(rel='stylesheet', href='/css/bootstrap.min.css')
+    link(rel='stylesheet', href='/css/cover.css')
     block css
+
   body
-    div.container
-      include header
-      div.content
-        block content
-    include footer
+    div.site-wrapper
+      div.site-wrapper-inner
+        div.cover-container
+          include header
+
+          block content
+
+          include footer
     block scripts

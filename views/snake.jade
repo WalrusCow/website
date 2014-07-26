@@ -5,10 +5,10 @@ block content
     Use either the arrow keys or WASD to change direction.
     Eat food to grow longer.  You lose if you hit yourself
     or the wall.
-  canvas#Snake-canvas(tabindex='1', height='200', width='200').
+  canvas.game#Snake-canvas(tabindex='1', height='200', width='200').
     Please use a modern browser to play.
   br
-  button#Snake-start Play Snake
+  button.btn.btn-default#Snake-start Play Snake
 
 block scripts
   script(data-main='/scripts/snakeMain.js', src='/scripts/require.js')

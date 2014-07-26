@@ -1,10 +1,11 @@
-div.header.content
-
-  h1.title#mainTitle
-    a(href='/') William McDonald
-  h1.title.navLink
-    a(href='https://github.com/WalrusCow') GitHub
-  h1.title.navLink
-    a(href='/resume.pdf') Résumé
-  h1.title.navLink
-    a(href='/projects') Projects
+div.masthead.clearfix
+  div.inner
+    ul.nav.masthead-nav
+      li(class=(nav == 'home' ? 'active' : ''))
+        a(href='/') Home
+      li(class=(nav == 'projects' ? 'active' : ''))
+        a(href='/projects') Projects
+      li
+        a(href='/resume.pdf') Résumé
+      li
+        a(href='https://www.github.com/WalrusCow') GitHub
