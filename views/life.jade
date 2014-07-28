@@ -1,9 +1,13 @@
 extends layout
 
 block content
+  h3 Conway's Game of Life
   p.
     Click on the canvas to populate a cell.
     Drag the slider to change the speed of the game.
+  p
+    a(href="http://en.wikipedia.org/wiki/Conway's_Game_of_Life")
+      | More info
   canvas.game#Life-canvas(height='300', width='200').
     Please use a modern browser to play.
   br
